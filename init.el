@@ -10,6 +10,9 @@
 (scroll-bar-mode -1)
 (set-frame-font "Fira Code" nil t)
 
+(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(width . 120))
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (require 'package)
@@ -36,12 +39,6 @@
   (delete-other-windows))
 
 (global-set-key (kbd "s-g") 'magit-status)
-
-(use-package fullframe
-  :config
-  (fullframe magit-status magit-mode-bury-buffer nil)
-  (fullframe magit-stash-show magit-mode-bury-buffer nil)
-  (fullframe magit-show-commit magit-mode-bury-buffer nil))
 
 (use-package counsel
   :defer 1
