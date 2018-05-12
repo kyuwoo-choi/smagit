@@ -1,6 +1,11 @@
 #!/bin/bash
 
 HERE=$(dirname "$(readlink "$0")")
-REPO=$(basename "`pwd`")
+REPO=$(basename "`git rev-parse --show-toplevel`")
+
+if [ ${#REPO} -eq "0" ]; then
+  echo "You are not in a git repository."
+  exit 126
+fi
 
 emacs --name="smagit: $REPO" -q --load $HERE/init.el
