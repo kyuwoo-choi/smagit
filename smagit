@@ -1,7 +1,6 @@
 #!/bin/bash
 
-EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
 HERE=$(dirname "$(readlink "$0")")
 REPO=$(basename "`pwd`")
 
-${EMACS} --name="smagit: $REPO" -q --load $HERE/init.el
+emacs --name="smagit: $REPO" -q --load $HERE/init.el
